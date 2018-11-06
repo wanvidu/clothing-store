@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
             crossorigin="anonymous">
-        <link rel="stylesheet" href="css/registrationStyle.css">
+        <link rel="stylesheet" href="./css/registrationStyle.css">
     </head>
 
     <body>
@@ -22,101 +28,61 @@
         </div>
 
         <div class="navbar">
-            <a href="#home">Home</a>
+            <a href="index.php">Home</a>
             <div class="dropdown">
-                <button class="dropbtn">Shop
+                <button class="dropbtn" onclick="location.href='./products.php?id=all'" type="button">Shop
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <div class="header">
-                        <h2>Mega Menu</h2>
-                    </div>
                     <div class="row">
                         <div class="column">
-                            <h3>Category 1</h3>
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            <a href="./products.php?id=men">
+                                <h3>Men's</h3>
+                            </a>
+                            <a href="./products.php?id=1">Shirts</a>
+                            <a href="./products.php?id=2">T-Shirts</a>
+                            <a href="./products.php?id=3">Trousers</a>
                         </div>
                         <div class="column">
-                            <h3>Category 2</h3>
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            <a href="./products.php?id=women">
+                                <h3>Women's</h3>
+                            </a>
+                            <a href="./products.php?id=4">Dresses</a>
+                            <a href="./products.php?id=5">Tops, Tees & Blouses</a>
+                            <a href="./products.php?id=6">Skirts</a>
                         </div>
                         <div class="column">
-                            <h3>Category 3</h3>
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            <a href="./products.php?id=accessories">
+                                <h3>Accessories</h3>
+                            </a>
+                            <a href="./products.php?id=7">Shoes</a>
+                            <a href="./products.php?id=8">Jewelry</a>
+                            <a href="./products.php?id=9">Watches</a>
+                            <a href="./products.php?id=10">Handbags & Wallets</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <a href="#news">Blog</a>
-            <a href="#news">Contact</a>
+            <a href="">Blog</a>
+            <a href="./contactUs.php">Contact</a>
             <div class="topnav-right">
-                <a href="#search">
-                    <i class="fa fa-fw fa-search"></i>
+                <a href="">
+                    <i class="fa fa-fw fa-search" style="font-size:22px;"></i>
                 </a>
-                <a href="#about" onclick="showLogin()">
-                    <i class="fa fa-fw fa-user"></i>
+                <a href="./index.php">
+                    <i class="fa fa-fw fa-user" style="font-size:22px;"></i>
                 </a>
-                <a href="#about">
-                    <span class="fa-layers">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="fa-layers-counter" style="background:blue;">3</span>
-                    </span>
-                </a>
-            </div>
-        </div>
+                <a href="./cart.php">
+                    <div class="fa-1x">
+                        <i class="fas fa-shopping-cart" style="font-size:22px;"></i>
 
-        <div id="myModal" class="modal">
-
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Login or SignUp</h2>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <form action="/action_page.php">
-                            <div class="row">
-
-                                <div class="col">
-                                    <a href="#" class="fb btn">
-                                        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                                    </a>
-                                    <a href="#" class="twitter btn">
-                                        <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-                                    </a>
-                                    <a href="#" class="google btn">
-                                        <i class="fa fa-google fa-fw">
-                                        </i> Login with Google+
-                                    </a>
-                                </div>
-
-                                <div class="col">
-                                    <input type="text" name="username" placeholder="Username" required>
-                                    <input type="password" name="password" placeholder="Password" required>
-                                    <input type="submit" value="Login">
-                                </div>
-
-                            </div>
-                        </form>
+                        <span class="fa-layers fa-fw">
+                            <i class="fas fa-circle-notch fa-spin" style="color:yellow; font-size:30px;"></i>
+                            <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-6 right-4" style="font-weight:900;font-size:22px;">02</span>
+                        </span>
                     </div>
 
-                    <div class="bottom-container">
-                        <div class="row">
-                            <div class="col">
-                                <a href="#" style="color:white" class="btn">Sign up</a>
-                            </div>
-                            <div class="col">
-                                <a href="#" style="color:white" class="btn">Forgot password?</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
 
@@ -126,36 +92,37 @@
             </div>
             <div class="card-body">
                 <div>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="myForm" onSubmit="return formValidation();" id="myForm" novalidate>
+                    <form method="post" action="addUser.php" name="myForm" onSubmit="return formValidation();" id="myForm"
+                        novalidate>
                         <div class="form-row">
                             <label>First Name</label>
-                            <input type="text" placeholder="Your Name.." autofocus>
+                            <input type="text" id="txtName" name="txtName" placeholder="Your Name.." autofocus>
                             <small>Enter Valid Name</small>
                         </div>
 
                         <div class="form-row">
                             <label>Nike Name</label>
-                            <input type="text" placeholder="Your Nike Name..">
+                            <input type="text" id="txtNikeName" name="txtNikeName" placeholder="Your Nike Name..">
                             <small>Enter Valid Nike Name</small>
                         </div>
 
                         <div class="form-row">
                             <label>Email Address</label>
-                            <input type="email" placeholder="Your Email Address..">
+                            <input type="email" id="txtEmail" name="txtEmail" placeholder="Your Email Address..">
                             <small>Enter Valid Email Address</small>
                         </div>
 
                         <div class="form-row">
                             <label>Contact Number</label>
-                            <input type="text" placeholder="Your Contact Number..">
+                            <input type="text" id="txtNumber" name="txtNumber" placeholder="Your Contact Number..">
                             <small>Enter Valid Contact Number</small>
                         </div>
 
                         <div class="form-row">
                             <label>Gender</label>
                             <div class="radio">
-                                <input type="radio" name="r" id="r1">Male
-                                <input type="radio" name="r" id="r2">Female
+                                <input type="radio" name="r" id="r1" value="Male">Male
+                                <input type="radio" name="r" id="r2" value="Female">Female
                             </div>
                             <small>Choose One</small>
                         </div>
@@ -164,7 +131,7 @@
                             <label>Password</label>
                             <div class="flex-container">
                                 <div style="flex-grow: 11">
-                                    <input type="password" id="password-field" placeholder="Enter Password...">
+                                    <input type="password" id="password-field" name="password_field" placeholder="Enter Password...">
                                 </div>
                                 <div style="flex-grow: 1">
                                     <button type="button" onClick="viewPassword('password-field','pass-status')" class="btn">
@@ -179,7 +146,8 @@
                             <label>Confirm Password</label>
                             <div class="flex-container">
                                 <div style="flex-grow: 11">
-                                    <input type="password" id="con-password-field" placeholder="Re-Enter Password...">
+                                    <input type="password" id="con-password-field" name="con_password_field"
+                                        placeholder="Re-Enter Password...">
                                 </div>
                                 <div style="flex-grow: 1">
                                     <button type="button" onClick="viewPassword('con-password-field','con-pass-status')"
@@ -194,6 +162,50 @@
                         <input type="submit" value="Submit">
                         <input type="reset" value="Reset">
                     </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="info-card" style="margin-top:50px;">
+            <div class="info-card-body">
+                <div class="row">
+                    <div class="col-3" style="text-align: center;margin: auto; color: tomato; margin-right:20px;">
+                        <i class="fas fa-truck fa-2x"></i>
+                    </div>
+                    <div class="col-9">
+                        <h4>FREE SHIPPING</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card-body">
+                <div class="row">
+                    <div class="col-4" style="text-align: center;margin: auto; color: tomato; margin-right:20px;">
+                        <i class="far fa-money-bill-alt fa-2x"></i>
+                    </div>
+                    <div class="col-8">
+                        <h4>CACH ON DELIVERY</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card-body">
+                <div class="row">
+                    <div class="col-3" style="text-align: center;margin: auto; color: tomato; margin-right:20px;">
+                        <i class="fab fa-dyalog fa-2x"></i>
+                    </div>
+                    <div class="col-9">
+                        <h4>45 DAYS RETURN</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card-body">
+                <div class="row">
+                    <div class="col-3" style="text-align: center;margin: auto; color: tomato; margin-right:20px;">
+                        <i class="far fa-clock fa-2x"></i>
+                    </div>
+                    <div class="col-9">
+                        <h4>OPENING ALL WEEK</h4>
+                    </div>
                 </div>
             </div>
         </div>
@@ -222,22 +234,24 @@
                 </h3>
 
                 <p class="footer-links">
-                    <a href="#">Home</a>
+                    <a href="./index.php">Home</a>
                     ·
-                    <a href="#">Products</a>
+                    <a href="./products.php?id=all">Products</a>
                     ·
-                    <a href="#">Cart</a>
+                    <a href="./cart.php">Cart</a>
                     ·
                     <a href="#">About</a>
                     ·
                     <a href="#">FAQ</a>
                     ·
-                    <a href="#">Contact</a>
+                    <a href="./contactUs.php">Contact</a>
                     ·
-                    <a href="#">Privacy Policy </a>
+                    <a href="./PrivacyPolicy.php">Privacy Policy </a>
                 </p>
 
-                <p class="footer-company-name">DressStyle &copy; 2018</p>
+                <p class="footer-company-name">DressStyle &copy; 2017-
+                    <?php echo date("Y"); ?>
+                </p>
             </div>
 
             <div class="footer-center">
@@ -266,8 +280,7 @@
 
                 <p class="footer-company-about">
                     <span>About the company</span>
-                    Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor
-                    lacus vehicula sit amet.
+                    DressStyle.
                 </p>
 
                 <div class="footer-icons">
@@ -329,24 +342,6 @@
                 document.documentElement.scrollTop = 0;
             }
 
-            function showLogin() {
-                var modal = document.getElementById('myModal');
-
-                var span = document.getElementsByClassName("close")[0];
-
-                modal.style.display = "block";
-
-                span.onclick = function() {
-                    modal.style.display = "none";
-                }
-
-                window.onclick = function(event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
-            }
-
             var e = document.getElementsByTagName("small");
 
             for (let i = 0; i < e.length; i++) {
@@ -377,6 +372,9 @@
                 }
 
                 if (!check) {
+
+                    return false;
+
                     var firstErrorIndex = 0;
 
                     for (let i = 0; i < (checkList.length) - 3; i++) {
@@ -387,20 +385,8 @@
                     }
 
                     setFocus(firstErrorIndex);
-                }
-
-                if (check) {
-                    var dis = confirm("Do you want to submit this form?");
-
-                    if (!dis) {
-                        return false;
-                        e.preventDefault();
-                    } else {
-                        return true;
-                    }
                 } else {
-                    return false;
-                    e.preventDefault();
+                    return true;
                 }
             }
 
